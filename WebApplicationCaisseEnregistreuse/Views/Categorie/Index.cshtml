@@ -1,0 +1,37 @@
+﻿@model List<Categorie>
+@{
+
+}
+
+<br>
+<h1>Liste des produits</h1>
+<br>
+<br>
+<br>
+
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public List<Produit>
+    ListeProduits { get; set; }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">@Html.DisplayNameForInnerType((Categorie m) => m.Nom)</th>
+          @*  <th scope="col">@Html.DisplayNameForInnerType((Categorie m) => m.ListeProduits)</th> *@
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Categorie m in Model)
+        {
+            <tr>
+                <th scope="row">@m.Id</th>
+                <td>@m.Nom</td>
+                 @*    <td>@m.ListeProduits</td> *@
+                <td><a class="btn btn-outline-danger btn-danger btn-delete" asp-action="DeleteByID" asp-route-id="@m.Id">X</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

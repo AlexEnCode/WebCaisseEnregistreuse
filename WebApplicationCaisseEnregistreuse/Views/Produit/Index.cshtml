@@ -1,0 +1,71 @@
+﻿@model List<Produit>
+@{
+
+}
+
+
+<br>
+<h1>Liste des produits</h1>
+<br>
+<br>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">@Html.DisplayNameForInnerType((Produit m) => m.Nom)</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Produit m) => m.Description)</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Produit m) => m.Prix)</th>
+            <th scope="col">Quantite</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Produit m) => m.Categorie)</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Produit m in Model)
+        {
+            <tr>
+                <th scope="row">@m.Id</th>
+                <td>@m.Nom</td>
+                <td>@m.Description</td>
+                <td>@m.Prix</td>
+                <td>@m.QuantiteStock</td>
+                <td>@m.Categorie</td>
+                <td><a class="btn btn-outline-light btn-details" asp-action="AddPanier" asp-route-id="@m.Id">+</a></td>
+                <td><a class="btn btn-outline-light btn-details" asp-action="Details" asp-route-id="@m.Id">Details</a></td>
+                <td><a class="btn btn-outline-light btn-details" asp-action="Add" asp-route-id="@m.Id">Modifier</a></td>
+                <td><a class="btn btn-outline-danger btn-danger btn-delete" asp-action="DeleteByID" asp-route-id="@m.Id">X</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@* 
+<div>
+    <br><br><br>
+    <section>
+
+        <form id="rechercheForm" method="get" action="/Task/Add">
+            <h1>Nouveau produit</h1>
+
+            <div class="mb-3">
+                <label for="Title" class="form-label">Title :</label>
+                <input type="text" class="form-control" id="Title" name="Title">
+                <span class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Poids" class="form-label">Description :</label>
+                <input type="text" class="form-control" id="Description" name="Description">
+            </div>
+            <div class="text-danger">@Html.ValidationSummary()</div>
+
+            <label for="id"></label>
+            <button class="btn btnoutline-light btn-details text-white" type="submit">Create</button>
+        </form>
+    </section>
+    <br>
+
+</div> *@

@@ -1,0 +1,54 @@
+﻿@model Produit
+@{
+    bool isUpdate = Model != null;
+    ViewData["Title"] = (isUpdate ? "Modifier" : "Ajouter") + " un Produit";
+}
+
+<h1>@(isUpdate ? "Modifier" : "Ajouter")</h1>
+
+<form asp-action="SubmitAnimal" enctype="multipart/form-data">
+   
+
+    <input asp-for="Id" type="hidden" class="form-control">
+  
+
+    <div class="mb-3">
+        <label asp-for="Nom" class="form-label"></label>
+        <input asp-for="Nom" type="text" class="form-control">
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" type="text" class="form-control">
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Prix" class="form-label"></label>
+        <input asp-for="Prix" type="number" class="form-control">
+        <span asp-validation-for="Prix" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Categorie" class="form-label"></label>
+        <input asp-for="Categorie" type="number" class="form-control">
+        <span asp-validation-for="Categorie" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="QuantiteStock" class="form-label"></label>
+        <input asp-for="QuantiteStock" type="number" class="form-control">
+        <span asp-validation-for="QuantiteStock" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Photo du Produit</label>
+        <input type="file" name="picture" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div class="text-danger">@Html.ValidationSummary()</div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
