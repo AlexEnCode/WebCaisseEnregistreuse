@@ -12,7 +12,7 @@ namespace WebApplicationCaisseEnregistreuse.Models
         [Required(ErrorMessage = "La description est requise")]
         public string Description { get; set; }
 
-        [Range(0.01, double.MaxValue, ErrorMessage = "Le prix doit être supérieur à zéro")]
+      //  [Range(0.01, double.MaxValue, ErrorMessage = "Le prix doit être supérieur à zéro")]
         public decimal Prix { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "La quantité en stock doit être un nombre positif")]
